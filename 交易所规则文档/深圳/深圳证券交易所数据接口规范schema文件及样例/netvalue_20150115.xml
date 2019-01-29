@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<NAVFile xmlns="http://ts.szse.cn/Fund">
+       <NAV>
+            <SecurityID>150001  </SecurityID>
+            <ValueDate>20150115</ValueDate>
+            <NetValue>1.7060</NetValue>           
+        </NAV>
+        <NAV>
+            <SecurityID>160001  </SecurityID>
+            <ValueDate>20150115</ValueDate>
+            <NetValue >0.1700</NetValue >
+        </NAV>
+</NAVFile>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<IOPVFile xmlns="http://ts.szse.cn/Fund">
+    <Version>1.0</Version>
+    <SecurityID>159901  </SecurityID>
+    <SecurityIDSource>101 </SecurityIDSource>
+    <Symbol>深100ETF</Symbol>
+    <FundManagementCompany>易方达基金管理有限公司</FundManagementCompany>
+    <UnderlyingSecurityID>399330  </UnderlyingSecurityID> 
+    <UnderlyingSecurityIDSource>101 </UnderlyingSecurityIDSource>
+    <CreationRedemptionUnit>1000000</CreationRedemptionUnit>
+    <EstimateCashComponent>-3409.40</EstimateCashComponent>
+    <RecordNum>2</RecordNum>
+    <TradingDay>20150115</TradingDay>    
+    <Components>
+        <Component>
+            <UnderlyingSecurityID>000001  </UnderlyingSecurityID>
+            <UnderlyingSecurityIDSource>101 </UnderlyingSecurityIDSource>
+            <UnderlyingSymbol >平安银行</UnderlyingSymbol>
+            <ComponentShare >1700</ComponentShare> 
+        </Component>
+        <Component>
+            <UnderlyingSecurityID>000562  </UnderlyingSecurityID>
+            <UnderlyingSecurityIDSource>101 </UnderlyingSecurityIDSource>
+            <UnderlyingSymbol >宏源证券</UnderlyingSymbol>
+            <ComponentShare >100</ComponentShare> 
+        </Component>
+    </Components>
+</IOPVFile>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PCFFile xmlns="http://ts.szse.cn/Fund">
+    <Version>1.0   </Version>
+    <SecurityID>159901</SecurityID>
+    <SecurityIDSource>101</SecurityIDSource>
+    <Symbol>深100ETF</Symbol>
+    <FundManagementCompany>易方达基金管理有限公司</FundManagementCompany>
+    <UnderlyingSecurityID>399330  </UnderlyingSecurityID>
+    <UnderlyingSecurityIDSource>101 </UnderlyingSecurityIDSource>
+    <CreationRedemptionUnit>1000000</CreationRedemptionUnit>
+    <EstimateCashComponent>-3409.40</EstimateCashComponent>
+    <MaxCashRatio>0.42000</MaxCashRatio>
+    <Publish>Y</Publish>
+    <Creation>Y</Creation>
+    <Redemption>Y</Redemption>
+    <RecordNum>2</RecordNum>
+    <TotalRecordNum>2</TotalRecordNum>
+    <TradingDay>20150115</TradingDay>
+    <PreTradingDay>20150114</PreTradingDay>
+    <CashComponent>-3408.40</CashComponent>
+    <NAVperCU>525809.60</NAVperCU>
+    <NAV>0.5258</NAV>
+    <DividendPerCU>0.00</DividendPerCU> 
+    <CreationLimit>1000000000</CreationLimit>
+    <RedemptionLimit>30000000</RedemptionLimit>
+    <CreationLimitPerUser>0</CreationLimitPerUser>
+    <RedemptionLimitPerUser>0</RedemptionLimitPerUser>
+    <NetCreationLimit>0</NetCreationLimit>
+    <NetRedemptionLimit>0</NetRedemptionLimit>
+    <NetCreationLimitPerUser>0</NetCreationLimitPerUser>
+    <NetRedemptionLimitPerUser>0</NetRedemptionLimitPerUser>
+    <Components>
+        <Component>
+            <UnderlyingSecurityID>000001</UnderlyingSecurityID>
+            <UnderlyingSecurityIDSource>101</UnderlyingSecurityIDSource>
+            <UnderlyingSymbol>平安银行</UnderlyingSymbol>
+            <ComponentShare>1700</ComponentShare>
+            <SubstituteFlag>1</SubstituteFlag>
+            <PremiumRatio>0.15000</PremiumRatio>          
+        </Component>
+        <Component>
+            <UnderlyingSecurityID>000562</UnderlyingSecurityID>
+            <UnderlyingSecurityIDSource>101</UnderlyingSecurityIDSource>
+            <UnderlyingSymbol >宏源证券</UnderlyingSymbol>
+            <SubstituteFlag>2</SubstituteFlag>           
+            <CreationCashSubstitute>8220.000</CreationCashSubstitute>
+            <RedemptionCashSubstitute>100</RedemptionCashSubstitute>           
+        </Component>
+    </Components>
+</PCFFile>

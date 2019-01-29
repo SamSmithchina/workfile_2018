@@ -1,0 +1,9 @@
+回报以json格式放在config\rsp目录下，json文件命名为"APPLID".json，如010.json,
+该json对象的根是一个List,List包括1到多个Object,遍历该List对象，如果其中一个Object满足筛选条件，则用其应答，然后跳过剩余的Object。
+Object中的key不为"response"时，则为用以筛选response的field_id，只有每个field_id都符合限定范围，才会以response域的值更新后返回，
+每个field_id的value可以直接设，也可以通过'$'标识特殊含义
+如
+'$UNIQUE'表示唯一
+'$SEAT'表示用委托的席位
+'$ACCOUNT'表示用委托的账号
+'$ID11'表示用委托的11对应的值

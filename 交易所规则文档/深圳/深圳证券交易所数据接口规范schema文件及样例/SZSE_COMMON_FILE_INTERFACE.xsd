@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 《深圳证券交易所数据文件交换接口规范》 -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:n="http://ts.szse.cn/Fund" targetNamespace="http://ts.szse.cn/Fund" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="FlagFile">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="FileName">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="128"/>
+						</xs:restriction>
+					</xs:simpleType>
+					<!--文件名称-->
+				</xs:element>
+				<xs:element name="FileDate" type="n:Date8Type">
+					<!--生成日期,YYYYMMDD格式-->
+				</xs:element>
+				<xs:element name="FileTime" type="n:N6">
+					<!--生成时间,HHMMSS格式-->
+				</xs:element>
+				<xs:element name="FileBytes">
+					<xs:simpleType>
+						<xs:restriction base="xs:decimal">
+							<xs:fractionDigits value="0"/>
+							<xs:totalDigits value="9"/>
+						</xs:restriction>
+					</xs:simpleType>
+					<!--文件字节数-->
+				</xs:element>
+				<xs:element name="CheckSum">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="32"/>
+						</xs:restriction>
+					</xs:simpleType>
+					<!--校验码,32字节的MD5校验码，16进制字符表示，每个字节表示一个16进制字符-->
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Errors">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Error">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="256"/>
+						</xs:restriction>
+					</xs:simpleType>
+					<!--错误信息-->
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="PCFFile">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Version">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="8"/>
+						</xs:restriction>
+					</xs:simpleType>
+					<!--版本号 -->
+				</xs:element>
+				<xs:element name="SecurityID" type="n:C8">
+					<!--证券代码-->
+				</xs:element>
+				<xs:element name="SecurityIDSource" type="n:SecurityIDSourceType">
+					<!--证券代码源-->
+				</xs:element>
+				<xs:element name="Symbol" type="n:SymbolType">
+					<!--基金名称-->
+				</xs:element>
+				<xs:element name="FundManagementCompany" type="n:FundManagementCompanyType">
+					<!--基金公司名称-->
+				</xs:element>
+				<xs:element name="UnderlyingSecurityID" type="n:C8">
+					<!--拟合指数代码-->
+				</xs:element>
+				<xs:element name="UnderlyingSecurityIDSource" type="n:SecurityIDSourceType">
+					<!--拟合指数代码源-->
+				</xs:element>
+				<xs:element name="CreationRedemptionUnit" type="n:N15-2">
+					<!--每个篮子（最小申购赎回单位）对应的ETF份数，目前只能为整数-->
+				</xs:element>
+				<xs:element name="EstimateCashComponent" type="n:N11-2">
+					<!--T日每个篮子的预估现金差额-->
+				</xs:element>
+				<xs:element name="MaxCashRatio" type="n:N6-5">
+					<!--最大现金替代比例，例如：5.551％在文件中用0.055510表示-->
+				</xs:element>
+				<xs:element name="Publish" type="n:YorN">
+					<!--是否发布IOPV，N：不发布，Y：发布-->
+				</xs:element>
+				<xs:element name="Creation" type="n:YorN">
+					<!--申购允许状态，N：禁止，Y：允许-->
+				</xs:element>
+				<xs:element name="Redemption" type="n:YorN">
+					<!--赎回允许状态，N：禁止，Y：允许-->
+				</xs:element>
+				<xs:element name="RecordNum" type="n:N4">
+					<!--表示一个篮子中的深市成份证券数目（包含159900证券）-->
+				</xs:element>
+				<xs:element name="TotalRecordNum" type="n:N4">
+					<!--表示一个篮子中的所有成份证券数目（包含159900证券）-->
+				</xs:element>
+				<xs:element name="TradingDay" type="n:Date8Type">
+					<!--T日日期，格式YYYYMMDD-->
+				</xs:element>
+				<xs:element name="PreTradingDay" type="n:Date8Type">
+					<!--T-X日日期，格式YYYYMMDD，X由基金公司根据基金估值时间确定-->
+				</xs:element>
+				<xs:element name="CashComponent" type="n:N11-2">
+					<!--T-X日申购赎回基准单位的现金余额-->
+				</xs:element>
+				<xs:element name="NAVperCU" type="n:N12-2">
+					<!--T-X日申购赎回基准单位净值-->
+				</xs:element>
+				<xs:element name="NAV" type="n:N8-4">
+					<!--T-X日基金的单位净值-->
+				</xs:element>
+				<xs:element name="DividendPerCU" type="n:N12-2">
+					<!--T日申购赎回基准单位的红利金额-->
+				</xs:element>
+				<xs:element name="CreationLimit" type="n:N18-2">
+					<!--当天累计可申购的基金份额上限，为0表示没有限制，目前只能为整数-->
+				</xs:element>
+				<xs:element name="RedemptionLimit" type="n:N18-2">
+					<!--当天累计可赎回的基金份额上限，为0表示没有限制，目前只能为整数-->
+				</xs:element>
+				<xs:element name="CreationLimitPerUser" type="n:N18-2">
+					<!--单个证券账户当天累计可申购的基金份额上限，为0表示没有限制，目前只能为整数-->
+				</xs:element>
+				<xs:element name="RedemptionLimitPerUser" type="n:N18-2">
+					<!--单个证券账户当天累计可赎回的基金份额上限，为0表示没有限制，目前只能为整数-->
+				</xs:element>
+				<xs:element name="NetCreationLimit" type="n:N18-2">
+					<!--当天净申购的基金份额上限，为0表示没有限制，目前只能为整数-->
+				</xs:element>
+				<xs:element name="NetRedemptionLimit" type="n:N18-2">
+					<!--当天净赎回的基金份额上限，为0表示没有限制，目前只能为整数-->
+				</xs:element>
+				<xs:element name="NetCreationLimitPerUser" type="n:N18-2">
+					<!--单个证券账户当天净申购的基金份额上限，为0表示没有限制，目前只能为整数-->
+				</xs:element>
+				<xs:element name="NetRedemptionLimitPerUser" type="n:N18-2">
+					<!--单个证券账户当天净赎回的基金份额上限，为0表示没有限制，目前只能为整数-->
+				</xs:element>
+				<xs:element name="Components">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Component" type="n:PCFComponent" minOccurs="0" maxOccurs="unbounded"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="PCFComponent">
+		<xs:sequence>
+			<xs:element name="UnderlyingSecurityID" type="n:C8">
+				<!--证券代码-->
+			</xs:element>
+			<xs:element name="UnderlyingSecurityIDSource" type="n:SecurityIDSourceType">
+				<!--证券代码源-->
+			</xs:element>
+			<xs:element name="UnderlyingSymbol" type="n:SymbolType">
+				<!--证券简称-->
+			</xs:element>
+			<xs:element name="ComponentShare" type="n:N15-2" minOccurs="0">
+				<!--成份证券数量，每个申购篮子中该成份证券的数量-->
+			</xs:element>
+			<xs:element name="SubstituteFlag">
+				<!--现金替代标志，表示该证券是否允许用现金进行替代
+0表示禁止现金替代（必须有证券），1表示可以进行现金替代（先用证券，证券不足时差额部分用现金替代），2表示必须用现金替代
+-->
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="0">
+							<!--0表示禁止现金替代（必须有证券）-->
+						</xs:enumeration>
+						<xs:enumeration value="1">
+							<!--1表示可以进行现金替代（先用证券，证券不足时差额部分用现金替代） -->
+						</xs:enumeration>
+						<xs:enumeration value="2">
+							<!--2表示必须用现金替代 -->
+						</xs:enumeration>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="PremiumRatio" type="n:N7-5" minOccurs="0">
+				<!--溢价比列，证券用现金进行替代的时候，计算价格时增加的比例。例如：2.551％在文件中用0.02551表示；2.1%在文件中用0.02100表示。
+此字段只有现金替代标志为‘1’时才使用
+-->
+			</xs:element>
+			<xs:element name="CreationCashSubstitute" type="n:N18-4" minOccurs="0">
+				<!--申购替代金额，当某只证券必须用现金替代的时候，申购时该证券所需总金额。例如：2000在文件中用2000.0000表示。
+此字段只有当替代标志为‘2’时才使用
+-->
+			</xs:element>
+			<xs:element name="RedemptionCashSubstitute" type="n:N18-4" minOccurs="0">
+				<!--赎回替代金额，当某只证券必须用现金替代的时候，赎回时对应该证券返还的总金额。
+例如：2000在文件中用2000.0000表示。对于跨境ETF、跨市场ETF、黄金ETF和现金债券ETF，该字段为0.0000。
+此字段只有当替代标志为‘2’时才使用
+-->
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="C8">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="8"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="N15-2">
+		<xs:restriction base="xs:decimal">
+			<xs:fractionDigits value="2"/>
+			<xs:totalDigits value="15"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="N11-2">
+		<xs:restriction base="xs:decimal">
+			<xs:fractionDigits value="2"/>
+			<xs:totalDigits value="11"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="N12-2">
+		<xs:restriction base="xs:decimal">
+			<xs:fractionDigits value="2"/>
+			<xs:totalDigits value="12"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="N10-5">
+		<xs:restriction base="xs:decimal">
+			<xs:fractionDigits value="5"/>
+			<xs:totalDigits value="10"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="N7-5">
+		<xs:restriction base="xs:decimal">
+			<xs:fractionDigits value="5"/>
+			<xs:totalDigits value="7"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="N8-4">
+		<xs:restriction base="xs:decimal">
+			<xs:fractionDigits value="4"/>
+			<xs:totalDigits value="8"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="N6-5">
+		<xs:restriction base="xs:decimal">
+			<xs:fractionDigits value="5"/>
+			<xs:totalDigits value="6"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="N18-4">
+		<xs:restriction base="xs:decimal">
+			<xs:fractionDigits value="4"/>
+			<xs:totalDigits value="18"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="N13-4">
+		<xs:restriction base="xs:decimal">
+			<xs:fractionDigits value="4"/>
+			<xs:totalDigits value="13"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="N18-2">
+		<xs:restriction base="xs:decimal">
+			<xs:fractionDigits value="2"/>
+			<xs:totalDigits value="18"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="N4">
+		<xs:restriction base="xs:decimal">
+			<xs:fractionDigits value="0"/>
+			<xs:totalDigits value="4"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="N6">
+		<xs:restriction base="xs:decimal">
+			<xs:fractionDigits value="0"/>
+			<xs:totalDigits value="6"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="FundManagementCompanyType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="30"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Date8Type">
+		<xs:restriction base="xs:int"/>
+		<!--日期，YYYYMMDD-->
+	</xs:simpleType>
+	<xs:simpleType name="YorN">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Y"/>
+			<xs:enumeration value="N"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="SecurityIDSourceType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="4"/>
+		</xs:restriction>
+		<!--证券代码源-->
+	</xs:simpleType>
+	<xs:simpleType name="SymbolType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="40"/>
+		</xs:restriction>
+		<!--证券名称-->
+	</xs:simpleType>
+</xs:schema>

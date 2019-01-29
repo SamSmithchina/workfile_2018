@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Samples xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<Sample>
+<SecurityID>000001  </SecurityID>
+<SecurityIDSource>102</SecurityIDSource>
+<Symbol>平安银行                                    </Symbol>
+<PrevClosePx>23.7000</PrevClosePx>
+<PublicFloatShareQuantity>5571282976.00</PublicFloatShareQuantity>
+<StopFlag>N</StopFlag>
+</Sample>
+<Sample>
+<SecurityID>000002  </SecurityID>
+<SecurityIDSource>102</SecurityIDSource>
+<Symbol>万  科Ａ                                   </Symbol>
+<PrevClosePx>11.3000</PrevClosePx>
+<PublicFloatShareQuantity>9672513318.00</PublicFloatShareQuantity>
+<StopFlag>Y</StopFlag>
+</Sample>
+</Samples>

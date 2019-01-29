@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 《深圳证券交易所第五版交易系统对基金公司数据接口规范》 -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:n="http://ts.szse.cn/Fund" targetNamespace="http://ts.szse.cn/Fund" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:include schemaLocation="SZSE_COMMON_FILE_INTERFACE.xsd"/>
+	<xs:element name="IOPVFile">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Version">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="8"/>
+						</xs:restriction>
+					</xs:simpleType>
+					<!--版本号 -->
+				</xs:element>
+				<xs:element name="SecurityID" type="n:C8">
+					<!--证券代码-->
+				</xs:element>
+				<xs:element name="SecurityIDSource" type="n:SecurityIDSourceType">
+					<!--证券代码源-->
+				</xs:element>
+				<xs:element name="Symbol" type="n:SymbolType">
+					<!--基金名称-->
+				</xs:element>
+				<xs:element name="FundManagementCompany" type="n:FundManagementCompanyType">
+					<!--基金公司名称-->
+				</xs:element>
+				<xs:element name="UnderlyingSecurityID" type="n:C8">
+					<!--拟合指数代码-->
+				</xs:element>
+				<xs:element name="UnderlyingSecurityIDSource" type="n:SecurityIDSourceType">
+					<!--拟合指数代码源-->
+				</xs:element>
+				<xs:element name="CreationRedemptionUnit" type="n:N15-2">
+					<!--IOPV组合对应的ETF份数，可能不同于最小申购赎回单位（比如，为提高IOPV计算精度，可以设置为最小申购赎回单位的整数倍）-->
+				</xs:element>
+				<xs:element name="EstimateCashComponent" type="n:N11-2">
+					<!--T日预估现金余额，单位元（因成份证券信息中不包括现金替代数据，需将必须现金替代金额加入此部分）-->
+				</xs:element>
+				<xs:element name="RecordNum" type="n:N4">
+					<!--IOPV组合证券数目-->
+				</xs:element>
+				<xs:element name="TradingDay" type="n:Date8Type">
+					<!--T日日期，格式YYYYMMDD-->
+				</xs:element>
+				<xs:element name="Components">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Component" type="n:IOPVComponent" minOccurs="0" maxOccurs="unbounded"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="IOPVComponent">
+		<xs:sequence>
+			<xs:element name="UnderlyingSecurityID" type="n:C8">
+				<!--证券代码-->
+			</xs:element>
+			<xs:element name="UnderlyingSecurityIDSource" type="n:SecurityIDSourceType">
+				<!--证券代码源-->
+			</xs:element>
+			<xs:element name="UnderlyingSymbol" type="n:SymbolType">
+				<!--证券简称-->
+			</xs:element>
+			<xs:element name="ComponentShare" type="n:N15-2">
+				<!--IOPV组合中该成份证券的数量，可能和PCF中的成份证券数量不一致（比如，为提高IOPV计算精度，可以设置为PCF中成份证券数量的整数倍）-->
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="NAVFile">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="NAV" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="SecurityID" type="n:C8">
+								<!--基金代码-->
+							</xs:element>
+							<xs:element name="ValueDate" type="n:Date8Type">
+								<!--净值日期,YYYYMMDD，填基金净值日期（最新估值日）-->
+							</xs:element>
+							<xs:element name="NetValue" type="n:N13-4">
+								<!--单位净值,精确到小数点后4位-->
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

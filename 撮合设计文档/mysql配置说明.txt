@@ -1,0 +1,5 @@
+1.mysql配置my.ini
+设置innodb_flush_log_at_trx_commit=2，在相对安全的情况下，提升了性能
+	0：最快，不保证ACID
+	1：保证了事务的ACID，最慢
+	2；相对安全，较0慢，与0接近
